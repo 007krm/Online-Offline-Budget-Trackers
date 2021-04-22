@@ -6,7 +6,7 @@ const compression = require("compression");
 const PORT = 3000;
 
 const app = express();
-
+require ("./connect")(app)
 app.use(logger("dev"));
 
 app.use(compression());
