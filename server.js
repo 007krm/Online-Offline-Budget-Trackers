@@ -2,7 +2,7 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
-
+const path = require ("path")
 const PORT = 3000;
 
 const app = express();
@@ -19,7 +19,9 @@ app.use(express.static("public"));
 //   useNewUrlParser: true,
 //   useFindAndModify: false
 // });
-
+app.get("/",(req,res)=>{
+  res.sendFile(path.join(__dirname,"index.html"))
+})
 // routes
 app.use(require("./routes/api.js"));
 
